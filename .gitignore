@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.venv/
+venv/
+env/
+.env
+.pytest_cache/
+
+# Runtime state — should never be committed
+state/
+logs/
+*.log

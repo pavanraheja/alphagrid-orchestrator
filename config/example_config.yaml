@@ -1,0 +1,35 @@
+# AlphaGrid Orchestrator — example configuration.
+# Copy + edit. Set ORCH_CONFIG=path/to/your.yaml when running.
+
+risk:
+  max_drawdown_pct: 15           # account-level circuit breaker
+  per_strategy_loss_cap_pct: 5   # auto-pause strategy on cumulative loss
+  conflict_gate: true            # block opposite-direction same-asset trades
+  duplicate_gate: true           # block re-entry for same asset+direction+strategy
+
+streams:
+  example_strategy:
+    enabled: false               # default off — must be promoted explicitly
+    capital: 100
+    max_concurrent: 2
+    promotion_state: shadow      # shadow | paper | live
+    gates:
+      min_trades: 15
+      min_wr_pct: 50
+      min_pf: 1.5
+
+  another_strategy:
+    enabled: false
+    capital: 100
+    max_concurrent: 2
+    promotion_state: paper       # already past shadow; nightly review will check live readiness
+    gates:
+      min_trades: 30             # this one demands more evidence
+      min_wr_pct: 55
+      min_pf: 2.0
+
+alerts:
+  telegram:
+    enabled: false
+    bot_token_env: TELEGRAM_BOT_TOKEN
+    chat_id_env: TELEGRAM_CHAT_ID
