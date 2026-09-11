@@ -5,6 +5,8 @@
 
 A production pattern for safely deploying autonomous decision systems that act on real-world resources.
 
+> Built by Pavan Raheja, AI Product Manager in Dubai — **[see my work & get in touch → pavan.blog/work](https://www.pavan.blog/work?utm_source=github&utm_medium=readme&utm_campaign=alphagrid-orchestrator)**
+
 When a decision system can move money, send messages, allocate compute, or trigger any irreversible side-effect, you need a layer between the decision engine and execution. Otherwise a model bug becomes a wallet bug, a prompt regression becomes a compliance incident, a deploy becomes an outage.
 
 This is the orchestration layer pattern I extracted from AlphaGrid — the production system I built and operate to route signals from autonomous trading systems to live execution.
